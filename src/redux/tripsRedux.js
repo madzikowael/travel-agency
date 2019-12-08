@@ -11,21 +11,26 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.name));
   }
 
-  // // TODO - filter by duration
-  // if(filters.duration){
-  //   const pattern = new RegExp(filters.duration, 'i');
-  //   output= output.filter (trip => pattern.test(trip.days));
-  // }
-  // // TODO - filter by tags
-  // if(filters.tags){
-  //   const pattern = new RegExp(filters.tags, 'i');
-  //   output = output.filter(trip => pattern.test(trip.tags));
-  // }
+  // TODO - filter by duration
+  if(filters.duration){
+    const pattern = new RegExp(filters.duration, 'i');
+    output= output.filter (trip => pattern.test(trip.days));
+  }
+  // TODO - filter by tags
+  if(filters.tags){
+    const pattern = new RegExp(filters.tags, 'i');
+    output = output.filter(trip => pattern.test(trip.tags));
+  }
 
-  // // TODO - sort by cost descending (most expensive goes first)
-  // if(filters.cost){
-  //   const pattern
-  // }
+  // TODO - sort by cost descending (most expensive goes first)
+  if(filters.cost >= 0){
+    // const pattern = new RegExp(filters.cost, 'i');
+    // output = output.filter(trip => pattern.test(trip.cost));
+    output.sort(getFilteredTrips);
+  } else if (filters.cost < 0)
+  {
+    return ('Error');
+  }
 
   return output;
 };
