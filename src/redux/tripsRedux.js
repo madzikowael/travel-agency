@@ -11,20 +11,30 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.name));
   }
 
-  // TODO - filter by duration
+  // // TODO - filter by duration
+  // if(filters.duration){
+  //   const pattern = new RegExp(filters.duration, 'i');
+  //   output= output.filter (trip => pattern.test(trip.days));
+  // }
+  // // TODO - filter by tags
+  // if(filters.tags){
+  //   const pattern = new RegExp(filters.tags, 'i');
+  //   output = output.filter(trip => pattern.test(trip.tags));
+  // }
 
-  // TODO - filter by tags
-
-  // TODO - sort by cost descending (most expensive goes first)
+  // // TODO - sort by cost descending (most expensive goes first)
+  // if(filters.cost){
+  //   const pattern
+  // }
 
   return output;
 };
 
 export const getTripById = ({trips}, tripId) => {
-  const filtered = trips;
+  let filtered = trips;
 
   // TODO - filter trips by tripId
-  filtered.filter(function(trip) {
+  filtered = filtered.filter(function(trip) {
     return trip.id == trip.Id;
   });
 
@@ -33,10 +43,10 @@ export const getTripById = ({trips}, tripId) => {
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
-  const filtered = trips;
+  let filtered = trips;
 
   // TODO - filter trips by countryCode
-  filtered.filter(function(trip) {
+  filtered = filtered.filter(function(trip) {
     return trip.country.code == countryCode;
   });
 
